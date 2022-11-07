@@ -15,6 +15,7 @@ Para levantar la aplicación púede seguir los siguientes pasos:
 - Requiere Establecer variables de entorno
 
    PRE_CITY (Ciudad de la que se desea obtener la información por defecto)
+   
    NEXT_PUBLIC_API_KEY (Key para la Api de https://openweathermap.org/ (gratuita))
 
 - Iniciar Servidor de Desarrollo
@@ -24,4 +25,5 @@ Para levantar la aplicación púede seguir los siguientes pasos:
   o Iniciar un Build de la aplicación
 
    npm run build
+   
    npm start
