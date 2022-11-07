@@ -1,0 +1,11 @@
+.prinDiv {
+  background-image: url("../public/back-app.jpg");
+  min-height: 100vh;
+  position: static;
+  background-size: cover;
+  display: block;
+  padding: 0;
+  margin: 0;
+    
+}
+
