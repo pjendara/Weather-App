@@ -19,7 +19,7 @@ export default function DefaultBar( {cityWeather} ) {
           <p className="font-serif">Temp. máxima: {cityWeather.main.temp_max} °C </p>
           </div>
         </div>
-         }
+        }
     </div>     
   )
 }
