@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useRef } from "react"
 import Image from 'next/image'
 import searchIcon from "../../public/sicon.png"
 import s from "./searchCard.module.css"
@@ -7,7 +7,7 @@ const apiKey = process.env.NEXT_PUBLIC_API_KEY
 
 export default function SearchBar() {
   
-  const [cityInput, setCityInput] = useState("")
+  const cityInput = useRef()
   const [cityWeather, setWeather] = useState({})
   const [cityForecast, setForecast] = useState({})
   const [isError, setIsError] = useState(false)
@@ -17,7 +17,7 @@ export default function SearchBar() {
     try {
       const res = await fetch(
         "https://api.openweathermap.org/data/2.5/weather?q=" +
-         cityInput +
+         cityInput.current.value +
         "&appid=" + apiKey +
         "&units=metric" +
         "&lang=es"
@@ -37,7 +37,7 @@ export default function SearchBar() {
     try {
       const res = await fetch(
         "https://api.openweathermap.org/data/2.5/forecast?q=" +
-         cityInput +
+         cityInput.current.value +
         "&appid=" + apiKey +
         "&units=metric" +
         "&lang=es"
@@ -60,7 +60,7 @@ export default function SearchBar() {
               <input 
                 className="shadow-xl p-2 focus:outline-none capitalize"
                 placeholder="  Ej:Bogotá"
-                onChange={(e) => setCityInput(e.target.value) }
+                ref={cityInput}
               />
               <button className="cursor-pointer transition ease-out hover:scale-95"
                onClick={() => [getCityWeather(), getCityForecast()]} disabled={cityInput === "" ? true : false}>
